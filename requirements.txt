@@ -1,1 +1,4 @@
 flask
+FastAPI
+WebSocket
+flask-socketio
