@@ -43,10 +43,10 @@ def handle_message(data):
         emit("message", f"{username}: {data["message"]}", room=data["login"])#, broadcast=True)
 
 # Handle disconnects
-@socketio.on('disconnect')
+@socketio.on('disconnect')  
 def handle_disconnect():
     username = users.pop(request.sid, "Anonymous")
     emit("message", f"{username} left the chat", broadcast=True)
 
 if __name__ == '__main__':
-    socketio.run(app, port=8000, debug=True)
+    socketio.run(app, port=8000, host='0.0.0.0', debug=True)
